@@ -12,12 +12,20 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.1",
+    "@types/events": "^3.0.0",
     "@types/mocha": "^9.1.1",
+    "@types/node": "^17.0.31",
+    "@types/yargs": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "eslint": "^8.14.0",
     "eslint-config-google": "^0.14.0",
+    "events": "^3.3.0",
+    "node": "^17.7.2",
     "nyc": "^15.1.0",
     "typedoc": "^0.22.15"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2"
   }
 }
