@@ -10,17 +10,20 @@ export class MessageEventEmitterServer extends EventEmitter {
   constructor(private server: net.Server) {
     super();
     this.openServerOnPort(60300);
-    let wholeData: string = '';
     server.on('connection', (connection) => {
       console.log('A client has connected.');
-
+      let wholeData: string = '';
       connection.on('data', (m) => {
         wholeData += m;
         let messageLimit = wholeData.indexOf('\n');
         while (messageLimit !== -1) {
+          // console.log('REQUEST: ', n);
+          // console.log('WHOLEDATA: ', wholeData);
           const message = wholeData.substring(0, messageLimit);
+          // console.log('MENSAJE: ', message);
           wholeData = wholeData.substring(messageLimit + 1);
           this.emit('request', JSON.parse(message));
+          // console.log('WHOLEDATA AFTER: ', wholeData);
           messageLimit = wholeData.indexOf('\n');
         }
       });
@@ -81,6 +84,7 @@ export class MessageEventEmitterServer extends EventEmitter {
         }
         // Una vez atendida la peticion el servidor termina la comunicacion con el usuario
         connection.end();
+        this.removeAllListeners();
       });
     });
   }
