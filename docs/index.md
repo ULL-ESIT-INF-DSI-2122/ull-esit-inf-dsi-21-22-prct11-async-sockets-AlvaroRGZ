@@ -39,7 +39,7 @@ conocimientos aprendidos en:
 
 
 ## Ejemplo de ejecución
-![ejecucion](./images/ejec.png)
+![ejecucion](./images/ejecucion.png)
 
 <a name="e3"></a>
 
