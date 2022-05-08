@@ -1,6 +1,6 @@
 import 'mocha';
 import {expect} from 'chai';
-import * as s from '../src/servidor/messageEventEmiterServer';
+import * as s from './servidor/noteServer';
 
 const server = new s.NoteServer(60600, undefined);
 

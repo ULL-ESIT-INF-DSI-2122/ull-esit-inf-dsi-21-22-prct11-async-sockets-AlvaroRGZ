@@ -1,5 +1,5 @@
 import {connect} from 'net';
-import {NoteClient} from './messageEventEmiterClient';
+import {NoteClient} from './noteClient';
 import * as mt from '../messageClasses/messageTypes';
 import * as yargs from 'yargs';
 

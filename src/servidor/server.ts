@@ -1,4 +1,4 @@
-import {NoteServer} from './messageEventEmiterServer';
+import {NoteServer} from './noteServer';
 
 // Si no se especifica ningun parametro por defecto se escuchara por el puerto 60300
 // Si el puerto indicado no es valido se recurre al por defecto
