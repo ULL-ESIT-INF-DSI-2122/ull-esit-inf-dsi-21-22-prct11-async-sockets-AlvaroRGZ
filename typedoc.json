@@ -1,0 +1,11 @@
+{
+  "entryPoints": [
+    "src/cliente/note-app.ts",
+    "src/cliente/noteClient.ts",
+    "src/servidor/noteServer.ts",
+    "src/servidor/server.ts",
+    "src/messageClasses/messageTypes.ts",
+    "src/messageClasses/printer.ts"
+  ],
+  "out": "typedocuments"
+}

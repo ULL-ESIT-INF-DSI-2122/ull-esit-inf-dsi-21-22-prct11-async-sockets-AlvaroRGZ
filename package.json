@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc mocha",
-    "doc": "npm doc"
+    "doc": "typedoc"
   },
   "keywords": [],
   "author": "",
