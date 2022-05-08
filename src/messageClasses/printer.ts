@@ -36,6 +36,9 @@ export function pError(s: string | NodeJS.ErrnoException) {
   console.error(chalk.redBright(s));
 }
 
+/**
+ * @param note imprime una nota por pantalla
+ */
 export function printNote(note: mt.Note) {
   print(note.title, note.color);
   print(note.body, note.color);

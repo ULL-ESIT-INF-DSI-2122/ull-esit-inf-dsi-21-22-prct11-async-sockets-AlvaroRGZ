@@ -1,15 +1,15 @@
 import {connect} from 'net';
-import {MessageEventEmitterClient} from './messageEventEmiterClient';
+import {NoteClient} from './messageEventEmiterClient';
 import * as mt from '../messageClasses/messageTypes';
-
-const socket = connect({port: 60300});
-const client = new MessageEventEmitterClient(socket);
-
 import * as yargs from 'yargs';
-import chalk from 'chalk';
 
 const noteTittle: string = 'Note title';
 const userName: string = 'User name';
+
+// Crea el socket y el manejador del socket para
+// actuar como cliente de la aplicacion
+const socket = connect({port: 60300});
+const client = new NoteClient(socket);
 
 /**
  * Funcion para implementar el comando add.
@@ -46,6 +46,7 @@ yargs.command({
   handler(argv) {
     if (typeof argv.title === 'string' && typeof argv.user === 'string' &&
         typeof argv.body === 'string') {
+      // Construye el mensaje de peticion y lo envia al servidor
       client.sendRequest({type: 'add', user: argv.user, title: argv.title, body: argv.body, color: argv.color as mt.Color});
     }
   },
@@ -94,7 +95,8 @@ yargs.command({
     if (typeof argv.title === 'string' && typeof argv.user === 'string' &&
         typeof argv.body === 'string' && typeof argv.color === 'string' &&
         typeof argv.newtitle === 'string') {
-
+      // Construye el mensaje de peticion y lo envia al servidor
+      client.sendRequest({type: 'modify', user: argv.user, title: argv.title, body: argv.body, color: argv.color as mt.Color, newTitle: argv.newtitle});
     }
   },
 });
@@ -122,6 +124,7 @@ yargs.command({
   },
   handler(argv) {
     if (typeof argv.title === 'string' && typeof argv.user === 'string') {
+      // Construye el mensaje de peticion y lo envia al servidor
       client.sendRequest({type: 'read', user: argv.user, title: argv.title});
     }
   },
@@ -150,7 +153,8 @@ yargs.command({
   },
   handler(argv) {
     if (typeof argv.title === 'string' && typeof argv.user === 'string') {
-
+      // Construye el mensaje de peticion y lo envia al servidor
+      client.sendRequest({type: 'delete', user: argv.user, title: argv.title});
     }
   },
 });
@@ -180,6 +184,7 @@ yargs.command({
   },
   handler(argv) {
     if (typeof argv.user === 'string') {
+      // Construye el mensaje de peticion y lo envia al servidor
       client.sendRequest({type: 'list', user: argv.user});
     }
   },

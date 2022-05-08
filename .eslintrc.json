@@ -19,6 +19,7 @@
     "max-len": "off",
     "valid-jsdoc": "off",
     "indent": "off",
-    "no-multi-spaces": "off"
+    "no-multi-spaces": "off",
+    "no-unused-vars": "off"
   }
 }
